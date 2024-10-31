@@ -32,7 +32,7 @@ class Bird:
         self.img = self.IMGS[0]
     
     def jump(self):
-        self.vel = -10.5
+        self.vel = -10
         self.tick_count = 0
         self.height = self.y
 
@@ -41,10 +41,8 @@ class Bird:
 
         d = self.vel*self.tick_count+1.5*self.tick_count**2
 
-        if d >= 16:
-            d=16
-        if d < 0:
-            d = -2
+        if d >= 15:
+            d=15
 
         self.y +=   d
 
@@ -182,7 +180,7 @@ def main():
         rem = []
         for pipe in pipes:
             if pipe.collide(bird):
-                pass
+                run = false
 
             if pipe.x + pipe.PIPE_TOP.get_width() < 0:
                 rem.append(pipe)
